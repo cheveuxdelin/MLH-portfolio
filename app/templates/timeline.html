@@ -22,12 +22,13 @@
             }).then(data => {
                 for (const element of data.timeline_posts) {
                     console.log(element)
-                    posts.innerHTML += 
-                    `<div>
+                    posts.innerHTML +=
+                        `<div>
                         <p>content: ${element.content}</p>
                         <p>created_at: ${element.created_at}</p>
                         <p>email: created_at: ${element.email}</p>
                     </div>`;
+                }
             });
         }
 
@@ -44,8 +45,8 @@
                 console.log(data);
                 getPosts();
             });
+            window.location.reload();
         };
-
         window.onload = getPosts;
     </script>
 </section>
