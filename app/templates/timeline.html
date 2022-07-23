@@ -17,7 +17,7 @@
 
         function getPosts() {
             event.preventDefault();
-            fetch('http://127.0.0.1:5000/api/timeline_post').then(response => {
+            fetch('https://mlhvictor.duckdns.org/api/timeline_post').then(response => {
                 return response.json();
             }).then(data => {
                 for (const element of data.timeline_posts) {
@@ -35,7 +35,7 @@
         form.onsubmit = (event) => {
             event.preventDefault();
             const data = new FormData(form);
-            fetch('http://127.0.0.1:5000/api/timeline_post', {
+            fetch('https://mlhvictor.duckdns.org/api/timeline_post', {
                 method: 'POST',
                 body: data,
             }).then(res => {
