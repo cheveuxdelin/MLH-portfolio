@@ -22,10 +22,10 @@ jobs:
           python-version: "3.6.8" #change to desired python version
       
       - name: Setup Python Virtual Environment
-        run: python -m venv python3-virtualenv
+        run: sudo python -m venv python3-virtualenv
       
       - name: Install Dependencies
-        run: python3-virtualenv/bin/pip install -r requirements.txt
+        run: sudo python3-virtualenv/bin/pip install -r requirements.txt
       
       - name: Run Tests
-        run: ./run_test.sh
+        run: chmod +x run_test.sh && ./run_test.sh
