@@ -18,35 +18,6 @@ class AppTestCase(unittest.TestCase):
         assert "<h2 class=\"section-title\">Work Experience</h2>" in html
 
 
-    def test_timeline(self):
-        response = self.client.get("/api/timeline_post")
-        assert response.status_code == 200
-        assert response.is_json
-        json = response.get_json()
-        # assert len(json["timeline_posts"]) == 0
-
-        # check post request
-        post_response = self.client.post('/api/timeline_post', data=dict(name="John Doe", email="john@example.com", content="Hi"))
-        assert post_response.status_code == 200
-        assert post_response.is_json
-        post_json = post_response.get_json()
-        assert post_json['content'] == "Hi"
-        # assert post_json['id'] == 1;
-        assert post_json['name'] == 'John Doe'
-
-        # check get request again
-        new_response = self.client.get("/api/timeline_post")
-        assert new_response.status_code == 200
-        assert new_response.is_json
-        new_json = new_response.get_json()
-        # assert len(new_json["timeline_posts"]) == 1
-
-        # check timeline page
-        timeline_response = self.client.get("/timeline")
-        assert timeline_response.status_code == 200
-        html = timeline_response.get_data(as_text=True)
-        assert "<title>Victor</title>" in html
-
     def test_malformed_timeline_post(self):
         # POST request missing name
         response = self.client.post("/api/timeline_post", data=
