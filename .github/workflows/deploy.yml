@@ -26,5 +26,5 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_IP: ${{ secrets.SSH_IP }}
-      - name: Deploy Site
-        run: ssh my-vps "~/redeploy_site.sh"
+      - name: Print project root direcotry
+        run: ssh my-vps "ls"
