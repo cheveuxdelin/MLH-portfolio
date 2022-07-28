@@ -27,4 +27,4 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_IP: ${{ secrets.SSH_IP }}
       - name: Deploy site
-        run: ssh my-vps "sudo ${{ secrets.PROJECT_ROOT }}/redeploy_site.sh"
+        run: ssh my-vps "sudo sh ${{ secrets.PROJECT_ROOT }}/redeploy_site.sh"
